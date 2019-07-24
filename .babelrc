@@ -1,0 +1,15 @@
+{
+    "plugins": [
+       [
+        "transform-runtime",
+        {
+          "polyfill": true
+        }
+       ]
+     ],
+     "presets": [
+       [
+         "es2015"
+       ]
+    ]
+  }
