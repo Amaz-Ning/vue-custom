@@ -1,6 +1,6 @@
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -15,7 +15,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use:['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.js$/,
@@ -24,6 +24,7 @@ module.exports = {
             }
         ]
     },
+    devtool: 'source-map',
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
@@ -31,4 +32,4 @@ module.exports = {
             filename: 'index.html'
         })
     ]
-}
+};
