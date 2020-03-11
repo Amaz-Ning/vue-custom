@@ -1,10 +1,18 @@
 <template>
     <div class="box">
        asdsdsdsadas
+       <Dialog>
+            <div>
+                dasdasd 
+                asdsdsdsadasadad
+                dasdd 13231312
+            </div>
+       </Dialog>   
     </div>
 </template>
 
 <script>
+import Dialog from './components/dialog.vue'
 export default {
     props: {
 
@@ -30,7 +38,7 @@ export default {
 
     },
     components: {
-
+        Dialog
     }
 };
 </script>
