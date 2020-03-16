@@ -3,9 +3,7 @@
        asdsdsdsadas
        <Dialog>
             <div>
-                dasdasd 
-                asdsdsdsadasadad
-                dasdd 13231312
+                <input v-auto-focus/>   
             </div>
        </Dialog>   
     </div>
