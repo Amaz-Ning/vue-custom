@@ -1,22 +1,18 @@
 <template>
- <div class="container">
+  <div class="container">
     <slot></slot>
- </div>
+  </div>
 </template>
 
 <script>
 import mixinJs from '../mixin/toastAndDialog.js'
 export default {
- mixins: [mixinJs.toastAndDialog],   
- mounted() {
-     this.sayHello()
- },   
- components: {
-
- }
+  mixins: [mixinJs.toastAndDialog],
+  mounted() {
+    this.sayHello()
+  },
+  components: {}
 }
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
