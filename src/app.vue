@@ -4,7 +4,7 @@
       <div>
         <input v-auto-focus />
       </div>
-    </Dialog> -->
+    </Dialog>-->
     <KForm :rules="rules" :info="info" ref="loginForm">
       <kFormItem label="用户名" prop="userName">
         <KInput type="text" v-model="info.userName" placeholder="用户名" />
@@ -16,11 +16,7 @@
         </kFormItem>
         <div>
           <kFormItem label="密码" prop="password">
-            <KInput
-              type="password"
-              v-model="info.password"
-              placeholder="密码"
-            />
+            <KInput type="password" v-model="info.password" placeholder="密码" />
           </kFormItem>
         </div>
       </kFormItem>
@@ -29,6 +25,7 @@
       </kFormItem>
     </KForm>
     <button @click="submit">提交</button>
+    <router-view></router-view>
   </div>
 </template>
 
