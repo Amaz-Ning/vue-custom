@@ -5,7 +5,7 @@
         <input v-auto-focus />
       </div>
     </Dialog>-->
-    <KForm :rules="rules" :info="info" ref="loginForm">
+    <!-- <KForm :rules="rules" :info="info" ref="loginForm">
       <kFormItem label="用户名" prop="userName">
         <KInput type="text" v-model="info.userName" placeholder="用户名" />
         <kFormItem label="密码" prop="password">
@@ -25,7 +25,8 @@
       </kFormItem>
     </KForm>
     <button @click="submit">提交</button>
-    <router-view></router-view>
+    <router-view></router-view>-->
+    <List @del="del" @add="add" @change="change" :listData="listData" />
   </div>
 </template>
 
@@ -34,10 +35,21 @@ import KForm from './components/form/kForm.vue'
 import KInput from './components/form/kInput.vue'
 import KFormItem from './components/form/KFromItem.vue'
 import Dialog from './components/dialog.vue'
+import List from './components/list/list.vue'
 export default {
   props: {},
   data() {
     return {
+      listData: [
+        {
+          detail: 'abcd',
+          id: 1
+        },
+        {
+          detail: '1234',
+          id: 2
+        }
+      ],
       info: {
         userName: '123',
         password: '1233321'
@@ -63,6 +75,24 @@ export default {
   mounted() {},
   watch: {},
   methods: {
+    change(data) {
+      this.listData.forEach(item => {
+        if (item.id == data.id) {
+          console.log(data)
+          item.detail = data.detail
+        }
+      })
+    },
+    del(data) {
+      this.listData.forEach((item, index) => {
+        if (item.id == data) {
+          this.listData.splice(index, 1)
+        }
+      })
+    },
+    add(data) {
+      this.listData.push(data)
+    },
     submit() {
       // 提交之前进行全局校验
       this.$refs.loginForm.validate(isValidate => {
@@ -78,7 +108,8 @@ export default {
     KForm,
     KInput,
     KFormItem,
-    Dialog
+    Dialog,
+    List
   }
 }
 </script>
