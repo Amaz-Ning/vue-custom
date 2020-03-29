@@ -27,6 +27,7 @@
     <button @click="submit">提交</button>
     <router-view></router-view>-->
     <List @del="del" @add="add" @change="change" :listData="listData" />
+    <button @click="toNotification">notify</button>
   </div>
 </template>
 
@@ -72,7 +73,9 @@ export default {
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(Notification)
+  },
   watch: {},
   methods: {
     change(data) {
@@ -92,6 +95,23 @@ export default {
     },
     add(data) {
       this.listData.push(data)
+    },
+    toNotification() {
+      if (!('Notification' in window)) {
+        alert('This browser does not support desktop notification')
+      }
+      // 否则我们需要向用户获取权限
+      else if (window.Notification.permission !== 'denied') {
+        console.log(Notification.permission)
+        window.Notification.requestPermission(function(permission) {
+          console.log(permission)
+          // 如果用户同意，就可以向他们发送通知
+          if (permission === 'granted') {
+            console.log(Notification)
+            var notification = new Notification('赵梦倩是小胖子')
+          }
+        })
+      }
     },
     submit() {
       // 提交之前进行全局校验
